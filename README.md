@@ -126,7 +126,7 @@ Load each json file in `/data/log_data` with pandas dataframe with lines=True
         time_data = dict(zip(column_labels, time_data))
 
 #### Insert Records into Time Table
-Implementing the `time_table_insert` query in `sql_queries.py` inserting records for the timestamps in the log file into the `time` table.
+Implementing the `time_table_insert` query in `sql_queries.py` inserting records for the timestamps in the log file into the `time` table using executemany().
 
 ### 2. Users Table
 
@@ -134,7 +134,7 @@ Implementing the `time_table_insert` query in `sql_queries.py` inserting records
 - Select columns for user ID, first name, last name, gender and level and set to `user_df`
 
 #### Insert Records into Users Table
-Implementing the `user_table_insert` query in `sql_queries.py` inserting records for the users in this log file into the `users` table.
+Implementing the `user_table_insert` query in `sql_queries.py` inserting records for the users in this log file into the `users` table using executemany().
 
 ### 3. Songplays Table
 #### Extract Data and Songplays Table
