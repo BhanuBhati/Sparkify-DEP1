@@ -32,8 +32,8 @@ def process_log_file(cur, filepath):
     """
     This procedure processes a log file whose filepath has been provided as an arugment.
     It filters the logs in order to process log only when page = NextSong.
-    It extracts the timestamp information and calculates required values in order to store them into the time table.
-    Then it extracts the user information in order to store it into the users table.
+    It extracts the timestamp information and calculates required values and stores it into the time table.
+    Then it extracts the user information and stores it into the users table.
     Finally, For every log, it gets respective song ID and artist ID from database using song_select query
     And stores all the required information in songplays table.
     
@@ -54,7 +54,7 @@ def process_log_file(cur, filepath):
     time_data = [t, t.dt.hour, t.dt.day, t.dt.isocalendar().week, t.dt.month, t.dt.year, t.dt.weekday]
     column_labels = ('start_time', 'hour', 'day', 'week', 'month', 'year', 'weekday')
     time_df = pd.DataFrame(dict(zip(column_labels, time_data)))
-    
+
     '''
     # For row by row insertion
     for i, row in time_df.iterrows():
